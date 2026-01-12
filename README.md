@@ -1,6 +1,6 @@
-# Pure Agent
+# Agent Lite
 
-一个纯 AI Agent 框架，专注于核心 Agent 能力，不包含 UI、文件系统等额外内容，可在任意 JavaScript 环境中使用。
+一个轻量级 AI Agent 框架，专注于核心 Agent 能力，不包含 UI、文件系统等额外内容，可在任意 JavaScript 环境中使用。
 
 ## 特性
 
@@ -25,13 +25,13 @@
 ### 安装
 
 ```bash
-npm install pure-agent
+npm install agent-lite
 ```
 
 ### 基本使用
 
 ```typescript
-import { CustomAdapterProvider, Agent } from 'pure-agent';
+import { CustomAdapterProvider, Agent } from 'agent-lite';
 
 // 1. 配置你的 API
 const provider = new CustomAdapterProvider({
@@ -65,14 +65,14 @@ console.log(result.content);
 
 ## 对接后台 API
 
-Pure Agent 支持对接任意后台 API，有两种方式：
+Agent Lite 支持对接任意后台 API，有两种方式：
 
 ### 方式一：使用 CustomAdapterProvider（推荐）
 
 适合快速对接标准 HTTP API：
 
 ```typescript
-import { CustomAdapterProvider } from 'pure-agent';
+import { CustomAdapterProvider } from 'agent-lite';
 
 const provider = new CustomAdapterProvider({
   apiUrl: 'https://your-api.com/v1/chat',
@@ -99,8 +99,8 @@ const provider = new CustomAdapterProvider({
 适合需要完全控制的场景：
 
 ```typescript
-import { BaseProvider } from 'pure-agent';
-import type { LLMProvider, ChatRequest, StreamChunk } from 'pure-agent';
+import { BaseProvider } from 'agent-lite';
+import type { LLMProvider, ChatRequest, StreamChunk } from 'agent-lite';
 
 class MyProvider extends BaseProvider implements LLMProvider {
   async *streamChat(request: ChatRequest) {
@@ -128,7 +128,7 @@ class MyProvider extends BaseProvider implements LLMProvider {
 通过 `task` 工具创建子 Agent：
 
 ```typescript
-import { Agent, createTaskTool } from 'pure-agent';
+import { Agent, createTaskTool } from 'agent-lite';
 
 const agent = new Agent({ provider });
 

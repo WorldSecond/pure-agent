@@ -2,14 +2,14 @@
 
 ## 如何对接后台 API
 
-Pure Agent 提供了两种方式对接后台：
+Agent Lite 提供了两种方式对接后台：
 
 ### 方式一：使用 CustomAdapterProvider（最简单）
 
 适合快速对接标准 HTTP API，只需配置请求/响应转换函数：
 
 ```typescript
-import { CustomAdapterProvider, Agent } from 'pure-agent';
+import { CustomAdapterProvider, Agent } from 'agent-lite';
 
 // 1. 配置你的 API
 const provider = new CustomAdapterProvider({
@@ -24,7 +24,7 @@ const provider = new CustomAdapterProvider({
     'Authorization': 'Bearer YOUR_API_KEY',
   },
   
-  // 请求转换：将 Pure Agent 的请求格式转换为你的 API 格式
+  // 请求转换：将 Agent Lite 的请求格式转换为你的 API 格式
   transformRequest: (request) => {
     return {
       messages: request.messages.map(msg => ({
@@ -39,7 +39,7 @@ const provider = new CustomAdapterProvider({
     };
   },
   
-  // 响应转换：将你的 API 响应格式转换为 Pure Agent 格式
+  // 响应转换：将你的 API 响应格式转换为 Agent Lite 格式
   transformStreamChunk: (data) => {
     if (data.content) {
       return { type: 'content', content: data.content };
@@ -67,8 +67,8 @@ console.log(result.content);
 如果需要完全控制，可以继承 `BaseProvider` 并实现接口：
 
 ```typescript
-import { BaseProvider } from 'pure-agent';
-import type { ChatRequest, StreamChunk } from 'pure-agent';
+import { BaseProvider } from 'agent-lite';
+import type { ChatRequest, StreamChunk } from 'agent-lite';
 
 class MyProvider extends BaseProvider {
   async *streamChat(request: ChatRequest) {

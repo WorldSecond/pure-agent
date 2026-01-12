@@ -1,24 +1,24 @@
-# Pure Agent 使用指南
+# Agent Lite 使用指南
 
 ## 快速开始
 
 ### 1. 安装依赖
 
 ```bash
-npm install pure-agent
+npm install agent-lite
 ```
 
 ### 2. 创建自定义后台适配器
 
-Pure Agent 支持对接任意后台 API，你需要创建一个适配器来实现 `LLMProvider` 接口。
+Agent Lite 支持对接任意后台 API，你需要创建一个适配器来实现 `LLMProvider` 接口。
 
 #### 方式一：使用 CustomAdapterProvider（推荐）
 
 `CustomAdapterProvider` 提供了灵活的配置选项，可以快速对接自定义 API：
 
 ```typescript
-import { CustomAdapterProvider, Agent } from 'pure-agent';
-import type { CustomAdapterConfig } from 'pure-agent';
+import { CustomAdapterProvider, Agent } from 'agent-lite';
+import type { CustomAdapterConfig } from 'agent-lite';
 
 // 配置你的 API
 const config: CustomAdapterConfig = {
@@ -76,14 +76,14 @@ const agent = new Agent({
 如果你需要更多控制，可以直接实现 `LLMProvider` 接口：
 
 ```typescript
-import { BaseProvider } from 'pure-agent';
+import { BaseProvider } from 'agent-lite';
 import type {
   LLMProvider,
   ChatRequest,
   StreamChunk,
   Model,
   ProviderConfig,
-} from 'pure-agent';
+} from 'agent-lite';
 
 class MyCustomProvider extends BaseProvider implements LLMProvider {
   constructor(config: ProviderConfig) {
@@ -189,7 +189,7 @@ const agent = new Agent({
 #### 基本使用（非流式）
 
 ```typescript
-import { Agent } from 'pure-agent';
+import { Agent } from 'agent-lite';
 
 const agent = new Agent({
   provider: myProvider,
@@ -222,8 +222,8 @@ for await (const event of stream) {
 ### 4. 使用工具
 
 ```typescript
-import { Agent, ToolRegistryImpl } from 'pure-agent';
-import type { Tool } from 'pure-agent';
+import { Agent, ToolRegistryImpl } from 'agent-lite';
+import type { Tool } from 'agent-lite';
 
 // 定义工具
 const myTool: Tool = {
@@ -268,7 +268,7 @@ const result = await agent.sendMessage('北京今天天气怎么样？');
 子 Agent 功能允许主 Agent 创建独立的子 Agent 来处理特定任务：
 
 ```typescript
-import { Agent, createTaskTool } from 'pure-agent';
+import { Agent, createTaskTool } from 'agent-lite';
 
 const agent = new Agent({
   provider: myProvider,
@@ -296,7 +296,7 @@ const result = await agent.sendMessage(
 ### 6. 会话存储和恢复
 
 ```typescript
-import { Agent, MemoryStorage } from 'pure-agent';
+import { Agent, MemoryStorage } from 'agent-lite';
 
 const storage = new MemoryStorage();
 
@@ -317,8 +317,8 @@ const sessionId = agent.getConfig().storage?.restoreSession?.(sessionId);
 ### 示例 1：对接 OpenAI 兼容 API
 
 ```typescript
-import { CustomAdapterProvider, Agent } from 'pure-agent';
-import type { CustomAdapterConfig } from 'pure-agent';
+import { CustomAdapterProvider, Agent } from 'agent-lite';
+import type { CustomAdapterConfig } from 'agent-lite';
 
 const config: CustomAdapterConfig = {
   apiUrl: 'https://api.openai.com/v1/chat/completions',

@@ -1,7 +1,7 @@
 {
-  "name": "pure-agent",
+  "name": "agent-lite",
   "version": "0.1.0",
-  "description": "一个纯 AI Agent 框架，专注于核心 Agent 能力",
+  "description": "一个轻量级 AI Agent 框架，专注于核心 Agent 能力",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
