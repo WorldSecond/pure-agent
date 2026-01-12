@@ -2,7 +2,7 @@
 
 ## 概述
 
-环境上下文（Environment Context）是 Gemini CLI 在每次对话开始时提供给模型的基础环境信息，包括日期、操作系统、工作目录结构、临时目录路径和环境内存等。本文档详细解析环境上下文构建的完整实现机制。
+环境上下文（Environment Context）在每次对话开始时提供给模型的基础环境信息，包括日期、操作系统、工作目录结构、临时目录路径和环境内存等。本文档详细解析环境上下文构建的完整实现机制。
 
 ## 核心函数调用链
 
@@ -49,7 +49,7 @@ export async function getEnvironmentContext(config: Config): Promise<Part[]> {
   const environmentMemory = config.getEnvironmentMemory();
 
   const context = `
-This is the Gemini CLI. We are setting up the context for our chat.
+This is the . We are setting up the context for our chat.
 Today's date is ${today} (formatted according to the user's locale).
 My operating system is: ${platform}
 The project's temporary directory is: ${tempDir}
@@ -84,7 +84,7 @@ ${environmentMemory}
 
 **输出格式：**
 ```
-This is the Gemini CLI. We are setting up the context for our chat.
+This is the . We are setting up the context for our chat.
 Today's date is Monday, January 7, 2025 (formatted according to the user's locale).
 My operating system is: win32
 The project's temporary directory is: /tmp/gemini-cli-xxx
@@ -515,7 +515,7 @@ My setup is complete. I will provide my first command in the next turn.
     role: 'user',
     parts: [{
       text: `
-This is the Gemini CLI. We are setting up the context for our chat.
+This is the . We are setting up the context for our chat.
 Today's date is Monday, January 7, 2025 (formatted according to the user's locale).
 My operating system is: win32
 The project's temporary directory is: /tmp/gemini-cli-xxx
@@ -803,7 +803,7 @@ const structure = await getFolderStructure(dir, {
 
 ## 总结
 
-环境上下文构建是 Gemini CLI 初始化过程中的关键步骤，它：
+环境上下文构建是  初始化过程中的关键步骤，它：
 
 1. **提供基础信息**：日期、操作系统、工作目录结构
 2. **支持多目录**：可以同时处理多个工作目录

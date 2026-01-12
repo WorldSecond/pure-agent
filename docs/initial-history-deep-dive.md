@@ -2,7 +2,7 @@
 
 ## 概述
 
-初始历史记录（Initial Chat History）是 Gemini CLI 在启动新会话或恢复旧会话时构建的对话历史基础。它包含环境上下文信息，并可以合并额外的历史记录。本文档详细解析初始历史记录构建的完整实现机制。
+初始历史记录（Initial Chat History）在启动新会话或恢复旧会话时构建的对话历史基础。它包含环境上下文信息，并可以合并额外的历史记录。本文档详细解析初始历史记录构建的完整实现机制。
 
 ## 核心函数
 
@@ -95,7 +95,7 @@ My setup is complete. I will provide my first command in the next turn.
     role: 'user',
     parts: [{
       text: `
-This is the Gemini CLI. We are setting up the context for our chat.
+This is the . We are setting up the context for our chat.
 Today's date is Monday, January 7, 2025 (formatted according to the user's locale).
 My operating system is: win32
 The project's temporary directory is: /tmp/gemini-cli-xxx
@@ -729,7 +729,7 @@ try {
 
 ## 总结
 
-初始历史记录构建是 Gemini CLI 会话管理的核心组件，它：
+初始历史记录构建是  会话管理的核心组件，它：
 
 1. **提供环境上下文**：将环境信息包装成初始历史记录
 2. **支持会话恢复**：可以合并恢复的历史记录
