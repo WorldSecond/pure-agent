@@ -1,5 +1,5 @@
 /**
- * Pure Agent 主入口
+ * Agent Lite 主入口
  */
 
 // 导出核心类型
