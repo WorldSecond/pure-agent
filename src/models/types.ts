@@ -2,9 +2,9 @@
  * LLM Provider 相关类型定义
  */
 
-import type { Message, MessageHistory } from '../types/messages';
+import type { MessageHistory } from '../types/messages';
 import type { ToolDefinition } from '../types/tools';
-import type { StreamEvent, FinishReason, UsageMetadata } from '../types/chat';
+import type { FinishReason, UsageMetadata } from '../types/chat';
 
 /**
  * 模型信息

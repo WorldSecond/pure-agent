@@ -2,7 +2,7 @@
 
 ## 概述
 
-IDE 集成是 Gemini CLI 与 IDE（如 VS Code）之间的通信机制，它使 CLI 能够获取 IDE 的上下文信息（打开的文件、光标位置、选中的文本等），并提供原生 diff 功能。本文档详细解析 IDE 集成的工作原理、核心代码，以及如何开发一个改版的 VSCode IDE 来连接。
+IDE 集成与 IDE（如 VS Code）之间的通信机制，它使 CLI 能够获取 IDE 的上下文信息（打开的文件、光标位置、选中的文本等），并提供原生 diff 功能。本文档详细解析 IDE 集成的工作原理、核心代码，以及如何开发一个改版的 VSCode IDE 来连接。
 
 ## IDE 集成架构图
 
@@ -29,7 +29,7 @@ IDE 集成是 Gemini CLI 与 IDE（如 VS Code）之间的通信机制，它使 
          │
          ▼
 ┌─────────────────┐
-│  Gemini CLI     │
+│       │
 │                 │
 │  ┌───────────┐  │
 │  │IdeClient  │  │
@@ -1126,7 +1126,7 @@ export class DiffManager {
       'vscode.diff',
       uri,
       tempUri,
-      `${path.basename(filePath)} (Gemini CLI)`
+      `${path.basename(filePath)} ()`
     );
     
     // 监听 diff 视图关闭
@@ -1315,5 +1315,5 @@ IDE 集成通过以下机制实现：
 4. 实现 Diff 功能
 5. 注册工具和通知
 
-遵循 [IDE Companion Spec](./ide-integration/ide-companion-spec.md) 规范，任何 IDE 都可以实现与 Gemini CLI 的集成。
+遵循 [IDE Companion Spec](./ide-integration/ide-companion-spec.md) 规范，任何 IDE 都可以实现与  的集成。
 

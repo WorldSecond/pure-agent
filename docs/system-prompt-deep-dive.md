@@ -2,7 +2,7 @@
 
 ## 概述
 
-系统提示词（System Prompt）是 Gemini CLI 中最重要的组件之一，它定义了 AI 代理的行为准则、工作流程和操作规范。本文档详细解析 `getCoreSystemPrompt()` 函数的实现机制。
+系统提示词（System Prompt）最重要的组件之一，它定义了 AI 代理的行为准则、工作流程和操作规范。本文档详细解析 `getCoreSystemPrompt()` 函数的实现机制。
 
 ## 核心函数
 
