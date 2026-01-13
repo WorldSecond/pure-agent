@@ -1,6 +1,6 @@
 # Agent Lite
 
-一个轻量级 AI Agent 框架，专注于核心 Agent 能力，不包含 UI、文件系统等额外内容，可在任意 JavaScript 环境中使用。
+一个轻量级 AI Agent 框架，专注于核心 Agent 能力，不包含 UI、文件系统等额外内容，可在Node环境中使用。
 
 ## 特性
 
